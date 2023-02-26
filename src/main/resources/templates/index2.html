@@ -1,0 +1,62 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<title>Passbook - strona główna</title>
+</head>
+<body class="bg-amber-400">
+<header>
+
+<div th:replace="~{partials/navi2.html :: header-better}"></div>
+
+<!-- banner -->
+<div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.wallpaperscraft.com/image/single/books_dark_shelf_159441_2560x1080.jpg)">
+	<div class="md:w-1/2">
+		<p class="text-3xl font-bold">PassBook</p>
+		<p class="text-2xl mb-10 leading-none">Strona do sprzedaży/wymiany książek</p>
+		<a th:href="@{/oferty}" class="bg-amber-600 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Lista ofert</a>
+	</div>  
+</div>
+
+</header>
+
+<div class="container min-h-screen mx-auto mb-auto px-4">  
+
+	<h1 class="text-2xl text-gray-800 text-center mb-10 mt-10 italic font-bold">
+	Nie można wyrzucać rzeczy tylko dlatego, że są niepotrzebne. Zawsze można je sprzedać.
+	</h1>
+	<p class="text-xl mb-4 leading-none underline">Ostatnio dodane oferty</p>
+	<div class="grid grid-cols-2 gap-8 mt-4 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+		<div th:each="el : ${lo}" class="flex flex-col items-center justify-center w-full max-w-lg mx-auto border rounded-md border-amber-600">
+  			<img class="object-cover w-full rounded-md h-72 xl:h-80" th:src="'img/oferty/' + ${el.image}" alt="zjecie_oferta">
+  			<h4 class="mt-2 text-lg font-medium text-center" th:text="${el.Nazwa_ksiazki}"></h4>
+  			<p class="italic text-gray-500" th:if="${el.Typ_oferty} == 0">Sprzedaż</p>
+  			<p class="italic text-gray-500" th:if="${el.Typ_oferty} == 1">Wymiana</p>
+  			<p class="italic text-gray-500" th:if="${el.Typ_oferty} == 2">Zapytanie</p>
+  			<p th:text="${el.Cena} + 'zł'"></p>
+
+  			<a th:href="@{/oferty/obejrzyj/{id}(id=${el.id})}" class="flex items-center justify-center w-full bg-amber-500 px-2 py-2 mt-4 tracking-wide font-medium capitalize text-xs transition-colors rounded-md duration-500 transform hover:bg-amber-600 hover:text-gray-800 focus:outline-none" >Wybierz</a>
+		</div>
+	</div>
+	
+	<p class="text-xl mb-4 mt-10 leading-none underline">Ostatnio dodane książki</p>
+	<div class="grid grid-cols-2 gap-8 mt-4 mb-4 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+		<div th:each="el : ${lk}" class="flex flex-col items-center justify-center w-full max-w-lg mx-auto border rounded-md border-amber-600">
+  			<img class="object-cover w-full rounded-md h-72 xl:h-80" th:src="'img/oferty/' + ${el.image}" alt="zjecie_ksiazka">
+  			<h4 class="mt-2 text-lg font-medium text-center" th:text="${el.Nazwa}"></h4>
+  			<p class="italic text-gray-500" th:text="${el.Gatunek}"></p>
+  			<p th:text="${el.Wydawnictwo}"></p>
+
+  			<a th:href="@{/ksiazki/obejrzyj/{id}(id=${el.id})}" class="flex items-center justify-center w-full bg-amber-500 px-2 py-2 mt-4 tracking-wide font-medium capitalize text-xs transition-colors rounded-md duration-500 transform hover:bg-amber-600 hover:text-gray-800 focus:outline-none" >Wybierz</a>
+		</div>
+	</div>
+</div>
+
+<div th:replace="~{partials/footer.html :: footer}"></div>
+
+</body>
+</html>

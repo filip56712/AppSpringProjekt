@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+<title>Moje konto</title>
+</head>
+<body class="bg-amber-400">
+
+<div th:replace="~{partials/navi2.html :: header-better}"></div>
+
+<div class="container min-h-screen mx-auto mb-auto px-4"> 
+
+<div class="grid grid-cols-2 gap-8 mt-4 mb-4 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+	<div class="flex flex-col items-center justify-center w-full max-w-lg mx-auto border rounded-md border-amber-600">
+	<h3 class="mt-2">Oferty:</h3>
+	<a th:href="@{/oferty/dodaj}" class="flex items-center justify-center w-auto bg-amber-500 px-2 py-2 mt-2 tracking-wide font-medium capitalize text-xs transition-colors rounded-md duration-500 transform hover:bg-amber-600 hover:text-gray-800 focus:outline-none" >Dodaj oferte</a>
+	<a th:href="@{/oferty/mojeOferty}" class="flex items-center justify-center w-auto bg-amber-500 px-2 py-2 mt-2 tracking-wide font-medium capitalize text-xs transition-colors rounded-md duration-500 transform hover:bg-amber-600 hover:text-gray-800 focus:outline-none" >Moje oferty</a>
+	<a th:href="@{/oferty/mojeZakupy}" class="flex items-center justify-center w-auto bg-amber-500 px-2 py-2 mt-2 tracking-wide font-medium capitalize text-xs transition-colors rounded-md duration-500 transform hover:bg-amber-600 hover:text-gray-800 focus:outline-none" >Moje zakupy</a>
+	<a th:href="@{/oferty/mojaSprzedaz}" class="flex items-center justify-center w-auto bg-amber-500 px-2 py-2 mt-2 mb-4 tracking-wide font-medium capitalize text-xs transition-colors rounded-md duration-500 transform hover:bg-amber-600 hover:text-gray-800 focus:outline-none" >Moja sprzedaż</a>
+	</div>
+	
+	<div class="flex flex-col items-center justify-center w-full max-w-lg mx-auto border rounded-md border-amber-600">
+		<h3 class="mt-2">Ustawienia:</h3>
+		<a th:href="@{/zmienHaslo}" class="flex items-center justify-center w-auto bg-amber-500 px-2 py-2 mt-2 tracking-wide font-medium capitalize text-xs transition-colors rounded-md duration-500 transform hover:bg-amber-600 hover:text-gray-800 focus:outline-none" >Zmień hasło</a>
+		<a th:href="@{/wyloguj}" class="flex items-center justify-center w-auto bg-amber-500 px-2 py-2 mt-2 tracking-wide font-medium capitalize text-xs transition-colors rounded-md duration-500 transform hover:bg-amber-600 hover:text-gray-800 focus:outline-none" >Wyloguj</a>
+	</div>
+	
+</div>
+	
+</div>
+
+<div th:replace="~{partials/footer.html :: footer}"></div>
+
+</body>
+</html>

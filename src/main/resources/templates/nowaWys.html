@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+<title>Uzupełnij dane wysyłki - zakupu</title>
+</head>
+<body class="bg-amber-400">
+
+<div th:replace="~{partials/navi2.html :: header-better}"></div>
+
+<div class="container min-h-screen mx-auto mb-auto px-4"> 
+
+<div id="zawartosc">
+        
+    <h2 class="mt-4 text-gray-900 text-3xl title-font font-medium mb-1" th:text="'Dane wysyłki dla oferty: '+${oferta.Nazwa_ksiazki}"></h2>
+    <form class="form-inline" th:action="@{/wysylka/save/{id}(id=${oferta.id})}" method="post" enctype="multipart/form-data">
+    <p class="mt-4">
+        <label for="wysylka_imie_nazwisko">Imie i nazwisko: </label>
+        <input class="rounded-md" id="wysylka_imie_nazwisko" name="wysylka_imie_nazwisko" value="" type="text" required>
+    </p>
+    <p class="mt-4">
+        <label for="wysylka_telefon">Telefon: </label>
+        <input class="rounded-md" id="wysylka_telefon" name="wysylka_telefon" value="" type="tel" required>
+    </p>
+    <p class="mt-4">
+        <label for="wysylka_adres_1">Adres 1: </label>
+        <input class="rounded-md" id="wysylka_adres_1" name="wysylka_adres_1" value="" type="text" required>
+    </p>
+    <p class="mt-4">
+        <label for="wysylka_adres_2">Adres 2: </label>
+        <input class="rounded-md" id="wysylka_adres_2" name="wysylka_adres_2" value="" type="text">
+    </p>
+    <p class="mt-4">
+        <label for="wysylka_kod_pocztowy">Kod pocztowy: </label>
+        <input class="rounded-md" id="wysylka_kod_pocztowy" name="wysylka_kod_pocztowy" value="" type="text" required>
+    </p>
+    <p class="mt-4">
+        <label for="wysylka_miasto">Miasto: </label>
+        <input class="rounded-md" id="wysylka_miasto" name="wysylka_miasto" value="" type="text" required>
+    </p>
+    <p class="mt-4">
+        <label for="wysylka_opcja_dost">Opcja dostawy:</label>
+        <select class="rounded-md w-96" id="wysylka_opcja_dost" name="wysylka_opcja_dost">
+            <option value="Kurier - poczta polska - za pobraniem">Kurier - poczta polska - za pobraniem</option>
+            <option value="Kurier - inpost - za pobraniem">Kurier - inpost - za pobraniem</option>
+            <option value="Kurier - poczta polska">Kurier - poczta polska</option>
+            <option value="Kurier - inpost">Kurier - inpost</option>
+            <option value="Przesyłka polecona">Przesyłka polecona</option>
+            <option value="List - ekonomiczny">List - ekonomiczny</option>
+        </select>
+    </p>
+    <button class="mt-4 flex ml-auto p-2.5 ml-2 text-sm font-medium text-white bg-amber-500 rounded-lg border border-amber-600 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-600 duration-200 ">Zakup</button>
+	</form>
+</div>
+</div>
+
+
+<div th:replace="~{partials/footer.html :: footer}"></div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+<title>Edytuj ofertę</title>
+</head>
+<body class="bg-amber-400">
+
+<div th:replace="~{partials/navi2.html :: header-better}"></div>
+
+<div class="container min-h-screen mx-auto mb-auto px-4"> 
+
+<form class="form-inline"  th:action="@{/saveEditOferta/{id}(id=${oferta.id})}" method="post" enctype="multipart/form-data">
+      
+    <p class="mt-4">
+        <label for="oferta_nazwa_ksiazki">Nazwa Ksiazki</label>
+        <input type="text" name="oferta_nazwa_ksiazki" id="oferta_nazwa_ksiazki" class="rounded-md w-80" th:value="${oferta.Nazwa_ksiazki}" required>
+    </p>
+    <p class="mt-4">
+        <label for="oferta_typ_oferty">Typ oferty:</label>
+    
+        <select name="oferta_typ_oferty" id="oferta_typ_oferty" class="rounded-md w-40 text-center" th:value="${oferta.typ_oferty}" >
+        	<option value=0>Sprzedaż</option>
+        	<option value=1>Wymiana</option>
+        	<option value=2>Zapytanie</option>
+        </select>
+    </p>
+    <p class="mt-4">
+        <label for="oferta_cena">Cena: </label>
+        <input id="oferta_cena" name="oferta_cena" value="" type="number" step="0.01" max="999" min="0" class="rounded-md" th:value="${oferta.Cena}" required>
+    </p>
+    <p class="mt-4">
+        <label for="custom-textarea">Opis: </label>
+        <textarea id="oferta_opis" name="oferta_opis" class="rounded-md w-96" th:text="${oferta.Opis}" required></textarea>
+    </p>
+    <p class="mt-4">
+        <label for="oferta_stan">Stan: </label>
+        <select name="oferta_stan" id="oferta_stan" class="rounded-md w-32 text-center" th:value="${oferta.stan}">
+        	<option value="Nowy">Nowy</option>
+         	<option value="Bardzo dobry">Bardzo dobry</option>
+        	<option value="Dobry">Dobry</option>
+        	<option value="Zadowalajacy">Zadowalajacy</option>
+        </select>
+    </p>
+    <p class="mt-4">
+        <label for="inputFile">Zjęcie: </label>
+        <input type="file" name="image" class ="rounded-md" id="inputFile">
+    </p>
+    <p class="mt-4"><button class="flex ml-auto p-2.5 ml-2 text-sm font-medium text-white bg-amber-500 rounded-lg border border-amber-600 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-600 duration-200 ">Edytuj</button></p>
+    </form>
+	
+</div>
+
+
+<div th:replace="~{partials/footer.html :: footer}"></div>
+
+</body>
+</html>

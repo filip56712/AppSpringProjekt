@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+<meta charset="UTF-8">
+<link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+<nav th:fragment="header-better" class="p-5 bg-amber-500 shadow md:flex md:items-center md:justify-between">
+  	<div class="flex justify-between items-center z-40">
+  	 	<span class="text-2x1 font-[Poppins] cursor-pointer">
+  	 	<a th:href="@{/glowna}"><img class="h-14 inline" th:src="@{/img/Pass_Book_logo_real.png}" alt="logo_img"></a>
+  	 	</span>
+  	 	
+  	 	<span class="text-3xl cursor-pointer mx-2 md:hidden block">
+  	 		<ion-icon name="menu"  onclick="Menu(this)"></ion-icon>
+  	 	</span>
+  	</div>
+  	
+  	<ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-amber-500 z-30 w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+  		<li class="mx-4 my-6 md:my-0">
+  			<a th:href="@{/glowna}" class="text-xl hover:text-amber-600 duration-500">Strona Główna</a>
+  		</li>
+  		<li class="mx-4 my-6 md:my-0">
+  			<a th:href="@{/oferty}" class="text-xl hover:text-amber-600 duration-500">Lista Ofert</a>
+  		</li>
+  		<li class="mx-4 my-6 md:my-0">
+  			<a th:href="@{/ksiazki}" class="text-xl hover:text-amber-600 duration-500">Lista Książek</a>
+  		</li>
+  		<li class="mx-4 my-6 md:my-0">
+  			<a th:href="@{/kontakt}" class="text-xl hover:text-amber-600 duration-500">Kontakt</a>
+  		</li>
+  		<li class="mx-4 my-6 md:my-0">
+  			<a th:href="@{/loguj}" class="text-xl hover:text-amber-600 duration-500"><img class="h-10 inline" th:src="@{/img/user.png}">Zaloguj</a>
+  		</li>
+  	</ul>
+  	
+  	<script>
+    function Menu(e){
+      let list = document.querySelector('ul');
+      e.name === 'menu' ? (e.name = "close",list.classList.add('top-[80px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[80px]'),list.classList.remove('opacity-100'))
+    }
+  </script>
+  
+  </nav>
+
+
+</body>
+</html>
