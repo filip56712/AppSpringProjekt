@@ -1,0 +1,97 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+<title>Rejestracja</title>
+</head>
+<body class="bg-amber-400">
+
+<div th:replace="~{partials/navi2.html :: header-better}"></div>
+
+<div class="container min-h-screen mx-auto mb-auto px-4"> 
+<form th:action="@{/rejestracjaSave}" method="post" enctype="multipart/form-data">
+<main
+  class="mx-auto flex min-h-screen w-full items-center justify-center"
+>
+  <!-- component -->
+ 
+  <section class="flex w-[30rem] flex-col space-y-10">
+    <div class="text-center text-4xl font-medium text-gray-800">Rejestracja</div>
+
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-amber-600"
+    >
+      <input
+        type="text"
+        name ="name"
+        id="name"
+        placeholder="Login"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+        required
+      />
+    </div>
+    
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-amber-600"
+    >
+      <input
+        type="email"
+        name ="email"
+        id="email"
+        placeholder="Email"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+        required
+      />
+    </div>
+    
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-amber-600"
+    >
+      <input
+        type="password"
+        name="Passwor"
+        id="Passwor"
+        placeholder="Hasło"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Co najmniej 8 długości, 1 duża litera 1 mała i 1 znak specjalny, spróbuj ponownie.' : '');
+                if (this.checkValidity())
+                    form.RepeatPasswor.pattern = this.value;"
+        required
+      />
+    </div>
+
+    <div
+      class="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-amber-600"
+    >
+      <input
+        type="password"
+        name="RepeatPasswor"
+        placeholder="Potwierdz hasło"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Wprowadz haslo jak powyzej' : '');"
+        required
+      />
+    </div>
+
+    <button
+      class="bg-amber-600 text-center py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"
+    >
+      Zarejestruj
+    </button>
+    
+  </section>
+</main>
+</form>	
+</div>
+
+<div th:replace="~{partials/footer.html :: footer}"></div>
+
+</body>
+</html>

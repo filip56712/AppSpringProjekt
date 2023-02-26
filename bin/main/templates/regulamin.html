@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+<title>Regulamin</title>
+</head>
+<body class="bg-amber-400">
+
+<div th:replace="~{partials/navi2.html :: header-better}"></div>
+
+<div class="container min-h-screen mx-auto mb-auto px-4 mt-8">  
+
+
+  <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+		<h1 class="text-gray-900 text-3xl title-font font-medium mb-1">Regulamin</h1>
+		<p class="leading-relaxed mt-4">
+		1.Rejestrując się na stronie, potwierdzasz, że masz 18 lat.<br>
+		2.Twoje dane osobowe są przetwarzane w celu dostarczenia zakupionych produktów.<br>
+		3.Prowadzimy wysyłkę wyłącznie na terenie Rzeczypospolitej Polski chyba że sprzedawca zgodzi się inaczej.<br>
+		4.Wszystkie podane ceny są cenami brutto.
+		</p>
+		<div class="flex mt-6">
+  			<a th:href="@{/index2}" class="flex ml-auto p-2.5 ml-2 text-sm font-medium text-white bg-amber-500 rounded-lg border border-amber-600 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-600 duration-200 ">Powrót</a>
+		</div>
+      </div>
+  </div>
+
+</div>
+
+<div th:replace="~{partials/footer.html :: footer}"></div>
+
+</body>
+</html>

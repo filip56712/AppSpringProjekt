@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+<title>Edytuj książkę</title>
+</head>
+<body class="bg-amber-400">
+
+<div th:replace="~{partials/navi2.html :: header-better}"></div>
+
+<div class="container min-h-screen mx-auto mb-auto px-4"> 
+
+<form class="form-inline" th:action="@{/ksiazka/saveEdit/{id}(id=${ksiazka.id})}" method="post" enctype="multipart/form-data">
+      
+    <p class="mt-4">
+        <label for="ksiazka_Nazwa">Nazwa Ksiazki</label>
+        <input type="text" name="ksiazka_Nazwa" id="ksiazka_Nazwa" class="rounded-md" th:value="${ksiazka.nazwa}" required>
+    </p>
+    <p class="mt-4">
+        <label for="ksiazka_Gatunek">Gatunek: </label>
+        <input class="rounded-md" id="ksiazka_Gatunek" name="ksiazka_Gatunek" value="" type="tel" th:value="${ksiazka.gatunek}" required>
+    </p>
+    <p class="mt-4">
+        <label for="custom-textarea">Opis: </label>
+        <textarea class="rounded-md" id="ksiazka_Opis" name="ksiazka_Opis" th:value="${ksiazka.opis}"></textarea>
+    </p>
+    <p class="mt-4">
+        <label for="ksiazka_Data_wyd">Data wydania: </label>
+        <input class="rounded-md" id="ksiazka_Data_wyd" name="ksiazka_Data_wyd" value="" type="date" th:value="${ksiazka.data_wyd}" required>
+    </p>
+    <p class="mt-4">
+        <label for="ksiazka_Autorzy">Autorzy: </label>
+        <input class="rounded-md" id="ksiazka_Autorzy" name="ksiazka_Autorzy" value="" type="text" th:value="${ksiazka.autorzy}" required>
+    </p>
+    <p class="mt-4">
+        <label for="ksiazka_Wydawnictwo">Wydawnictwo: </label>
+        <input class="rounded-md" id="ksiazka_Wydawnictwo" name="ksiazka_Wydawnictwo" value="" th:value="${ksiazka.wydawnictwo}" type="text">
+    </p>
+    <p class="mt-4">
+        <label for="inputFile">Zdjęcie: </label>
+        <input type="file" name="image" class ="form-control-file" id="inputFile">
+    </p>
+    <p class="mt-4"><button class="flex ml-auto p-2.5 ml-2 text-sm font-medium text-white bg-amber-500 rounded-lg border border-amber-600 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-600 duration-200 ">Edytuj</button></p>
+    </form>
+	
+</div>
+
+
+<div th:replace="~{partials/footer.html :: footer}"></div>
+
+</body>
+</html>

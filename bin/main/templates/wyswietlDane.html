@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+<title>Dane wysylki - wyswietl</title>
+</head>
+<body class="bg-amber-400">
+
+<div th:replace="~{partials/navi2.html :: header-better}"></div>
+
+<div class="container min-h-screen mx-auto mb-auto px-4 mt-8">  
+
+
+  <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest" th:text="'Typ oferty: '+${typOferty}"></h2>
+		<h1 class="text-gray-900 text-3xl title-font font-medium mb-1" th:text="'Dane wysyłki dla książki: '+${oferta.Nazwa_ksiazki}"></h1>
+		<p class="leading-relaxed" th:text="'Opcja dostawy: '+ ${wysylka.opcja_dost}"></p>
+		<p class="leading-relaxed" th:text="${wysylka.adres_1}"></p>
+		<p class="leading-relaxed" th:if="${wysylka.adres_2}!=''" th:text="${wysylka.adres_2}"></p>
+		<p class="leading-relaxed" th:text="${wysylka.kod_pocztowy}+' '+${wysylka.miasto}"></p>
+		<p class="leading-relaxed" th:text="${wysylka.imie_nazwisko}"></p>
+		<p class="leading-relaxed" th:text="${wysylka.telefon}"></p>
+		<div class="flex mt-6">
+  			<a th:href="@{/oferty/mojaSprzedaz}" class="flex ml-auto p-2.5 ml-2 text-sm font-medium text-white bg-amber-500 rounded-lg border border-amber-600 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-600 duration-200 ">Powrót</a>
+		</div>
+      </div>
+  </div>
+
+</div>
+
+<div th:replace="~{partials/footer.html :: footer}"></div>
+
+</body>
+</html>
