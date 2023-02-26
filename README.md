@@ -22,4 +22,4 @@ More admin can:
 In the app there are implemented:
 - custom simple login system with the use of session in java
 - functions for the user and extended functionality for the admin
-- website responsiveness
+- website responsiveness (use of tailwind)
